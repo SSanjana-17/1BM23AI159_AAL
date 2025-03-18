@@ -1,0 +1,34 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+    char text[] = "nobody noticed him";
+    char pattern[] = "noticed";
+    
+    int i = 0, j = 0;
+    int textLen = 0, patternLen = 0;
+
+    while (text[textLen] != '\0') {
+        textLen++;
+    }
+
+    while (pattern[patternLen] != '\0') {
+        patternLen++;
+    }
+
+    for (i = 0; i <= textLen - patternLen; i++) {
+        j = 0;
+        
+        while (j < patternLen && text[i + j] == pattern[j]) {
+            j++;
+        }
+
+        if (j == patternLen) {
+            printf("Pattern found at index %d\n", i);
+            return 0; 
+        }
+    }
+
+    printf("Pattern not found\n"); 
+    return 0;
+}
