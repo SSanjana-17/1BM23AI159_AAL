@@ -1,0 +1,90 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+struct Node {
+    int vertex;
+    struct Node* next;
+};
+
+
+int stack[MAX];
+int top = -1;
+int i;
+
+
+void push(int v) {
+    stack[++top] = v;
+}
+
+
+int pop() {
+    return stack[top--];
+}
+
+
+void addEdge(struct Node* adjList[], int u, int v) {
+    struct Node* newNode = (struct Node*)malloc(sizeof(struct Node));
+    newNode->vertex = v;
+    newNode->next = adjList[u];
+    adjList[u] = newNode;
+}
+
+
+void dfs(int v, int visited[], struct Node* adjList[]) {
+    visited[v] = 1;
+
+    struct Node* temp = adjList[v];
+    while (temp != NULL) {
+        if (!visited[temp->vertex]) {
+            dfs(temp->vertex, visited, adjList);
+        }
+        temp = temp->next;
+    }
+
+    
+    push(v);
+}
+
+
+void topologicalSort(struct Node* adjList[], int V) {
+    int visited[MAX] = {0};
+
+    for ( i = 0; i < V; i++) {
+        if (!visited[i]) {
+            dfs(i, visited, adjList);
+        }
+    }
+
+   
+    printf("Topological Sort Order:\n");
+    while (top != -1) {
+        printf("%d ", pop());
+    }
+    printf("\n");
+}
+
+
+int main() {
+    int V = 6; 
+
+    
+    struct Node* adjList[MAX] = {NULL};
+
+   
+    addEdge(adjList, 5, 2);
+    addEdge(adjList, 5, 0);
+    addEdge(adjList, 4, 0);
+    addEdge(adjList, 4, 1);
+    addEdge(adjList, 2, 3);
+    addEdge(adjList, 3, 1);
+
+
+    topologicalSort(adjList, V);
+
+    return 0;
+}
+
+
+output:
+Topological sort order:
+5 4 3 2 1
