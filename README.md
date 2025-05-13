@@ -37,3 +37,22 @@ Vertex   Distance from Source     Path
 6        9                        6 <- 5 <- 2 <- 1 <- 0
 7        8                        7 <- 0
 8        14                       8 <- 2 <- 5 <- 2 <- 1 <- 0
+
+
+5. Prim's algo
+Edge    Weight
+0 - 1       2 
+1 - 2       3 
+0 - 3       6 
+1 - 4       5 
+Total Weight of MST: 16
+
+
+6. kruskal's algorithm
+Edge    Weight
+2 - 3       4
+0 - 3       5
+0 - 1      10
+
+
+
