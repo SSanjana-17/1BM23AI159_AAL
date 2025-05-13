@@ -25,3 +25,15 @@ Time taken for bubble sort: 0.000028 seconds
 3. TSP 
 Minimum TSP tour cost: 80
 
+
+4. Dijkstras Algo
+Vertex   Distance from Source     Path
+0        0                        0
+1        4                        1 <- 0
+2        12                       2 <- 5 <- 2 <- 1 <- 0
+3        19                       3 <- 2 <- 5 <- 2 <- 1 <- 0
+4        21                       4 <- 3 <- 2 <- 5 <- 2 <- 1 <- 0
+5        11                       5 <- 2 <- 1 <- 0
+6        9                        6 <- 5 <- 2 <- 1 <- 0
+7        8                        7 <- 0
+8        14                       8 <- 2 <- 5 <- 2 <- 1 <- 0
