@@ -1,5 +1,5 @@
 # 1BM23AI159_AAL
-OUTPUTS
+OUTPUTS for few programs were missing, I have updated those in here 
 1. nqueens
 Arrangement 1
 ..Q.
